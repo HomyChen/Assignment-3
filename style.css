@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+#top {
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+}
+
+#bottom {
+    position: absolute;
+    width: 100vw;
+    margin-top: 50vh;
+}
+
+.input {
+    position: absolute;
+    height: 5vh;
+    border: 2px black solid;
+    margin-left: 5vw;
+    width: 40vw;
+    font-family: Calibri;
+    font-size: 30px;
+}
+
+#username {
+    margin-top: 5vh;
+}
+
+#img_link {
+    margin-top: 15vh;
+}
+
+#movie_title {
+    margin-top: 15vh;
+    margin-left: 50vw;
+}
+
+#comment {
+    margin-top: 25vh;
+    width: 85vw;
+}
+
+#submit {
+    position: absolute;
+    margin-left: 5vw;
+    margin-top: 35vh;
+    width: 20vw;
+    height: 10vh;
+    font-family: Calibri;
+    font-size: 50px;
+    background-color: darkorange;
+    color: WHITE;
+}
+
+#error_display {
+    position: absolute;
+    height: 10vh;
+    width: 45vw;
+    margin-top: 35vh;
+    margin-left: 40vw;
+    font-family: Calibri;
+    font-size: 20px;
+    color: red;
+}
