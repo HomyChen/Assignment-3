@@ -9,7 +9,7 @@ $(document).ready(function(){
     
     var movie_check = /^[a-zA-Z ]{1,100000}$/;
     
-    var comment_check = /^[a-zA-Z0-9 .,?!]{0,100}$/;
+    var comment_check = /^[a-zA-Z0-9 .,?!]{1,100}$/;
     
     var submit = document.getElementById("submit");
     var username = document.getElementById("username");
@@ -18,22 +18,23 @@ $(document).ready(function(){
     var comment = document.getElementById("comment");
     var error_display = document.getElementById("error_display");
     
-    var input_filled = 'False';
-    var check_clear = 'True';
+    var username_clear = false;
+    var img_link_clear = false;
+    var movie_title_clear = false;
+    var comment_clear = false;
     
     username.onkeyup = function(){
         if(name_check.test(username.value) == true){
             username.style.color = 'green';
             error_display.innerHTML = '';
-            check_clear = 'True';
-            input_filled = 'True';
+            username_clear = true;
         }else if(username.value == ''){
-            input_filled = 'False';
+            username_clear = false;
             error_display.innerHTML = 'Username must be filled';
         }else{
             username.style.color = 'red';
             error_display.innerHTML = 'Username must be 8 - 15 characters and contain only alphabets or numbers';
-            check_clear = 'False';
+            username_clear = false;
         }
     }
     
@@ -41,15 +42,14 @@ $(document).ready(function(){
         if(imglink_check.test(img_link.value) == true){
             img_link.style.color = 'green';
             error_display.innerHTML = '';
-            check_clear = 'True';
-            input_filled = 'True';
+            img_link_clear = true;
         }else if(img_link.value == ''){
-            input_filled = 'False';
+            img_link_clear = false;
             error_display.innerHTML = 'Image link must be filled';
         }else{
             img_link.style.color = 'red';
             error_display.innerHTML = 'Image link must end in .jpg, .png, or .gif';
-            check_clear = 'False';
+            img_link_clear = false;
         }
     }
     
@@ -57,15 +57,14 @@ $(document).ready(function(){
         if(movie_check.test(movie_title.value) == true){
             movie_title.style.color = 'green';
             error_display.innerHTML = '';
-            check_clear = 'True';
-            input_filled = 'True';
+            movie_title_clear = true;
         }else if(movie_title.value == ''){
-            input_filled = 'False';
+            movie_title_clear = false;
             error_display.innerHTML = 'Movie title must be filled';
         }else{
             movie_title.style.color = 'red';
             error_display.innerHTML = 'Movie title may only contain alphabets and space';
-            check_clear = 'False';
+            movie_title_clear = false;
         }
     }
     
@@ -73,22 +72,19 @@ $(document).ready(function(){
         if(comment_check.test(comment.value) == true){
             comment.style.color = 'green';
             error_display.innerHTML = '';
-            check_clear = 'True';
-            input_filled = 'True';
+            comment_clear = true;
         }else if(comment.value == ''){
-            input_filled = 'False';
+            comment_clear = false;
             error_display.innerHTML = 'Comment must be filled';
         }else{
             comment.style.color = 'red';
             error_display.innerHTML = 'Comments may only contain alphabets, numbers, space, and punctuation (,.?!)';
-            check_clear = 'False';
+            comment_clear = false;
         }
     }
     
     submit.onclick = function(){
-        if (check_clear == 'False' || input_filled == 'False'){
-            error_display.innerHTML = 'Please make sure you filled everything properly.';
-        }else{
+        if (username_clear == true && img_link_clear == true && movie_title_clear == true && comment_clear == true){
             var display = document.createElement("div");
             var display_comment = document.createElement("div");
             bottom.appendChild(display);
@@ -139,6 +135,8 @@ $(document).ready(function(){
             display_name.style.border = '1px gray solid';
             display_name.style.borderRadius = '5px';
             display_name.style.textAlign = 'center';
+        }else{
+            error_display.innerHTML = 'Please make sure you filled everything properly.';
         }   
     }
     
