@@ -101,7 +101,7 @@ $(document).ready(function(){
             display_comment.style.fontFamily = 'Calibri';
             display_comment.style.position = 'absolute';
             display_comment.style.marginTop = '20vh';
-            display_comment.style.marginLeft = '5vw';
+            display_comment.style.marginLeft = '15vw';
             display_comment.style.fontSize = '30px';
             var display_img = document.createElement("img");
             display.appendChild(display_img);
@@ -119,9 +119,9 @@ $(document).ready(function(){
                 display_poster.src = resp.Search[0].Poster;
                 display.appendChild(display_poster);
                 display_poster.style.position = 'absolute';
-                display_poster.style.width = '5vw';
+                display_poster.style.width = '7vw';
                 display_poster.style.height = 'auto';
-                display_poster.style.marginLeft = '95vw';
+                display_poster.style.marginLeft = '93vw';
             }    
             })
             var display_name = document.createElement("div");
